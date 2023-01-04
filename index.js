@@ -11,16 +11,14 @@ async function run() {
 
     const commit_message = `Merge ${fromBranch} to ${toBranch}`
 
-    const response = await octokit.rest.repos.merge({
+    await octokit.rest.repos.merge({
       repo: github.context.repo.repo,
       owner: github.context.repo.owner,
       base: toBranch,
       head: fromBranch,
       commit_message
     })
-
-    core.info(`RES:\n${JSON.stringify(response)}`)
-
+    
   }catch(e){
     core.setFailed(e.message)
   }
