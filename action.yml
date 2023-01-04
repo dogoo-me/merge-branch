@@ -1,0 +1,14 @@
+name: 'Merge Branch'
+description: 'Merge branch'
+inputs:
+  github_token:
+    description: 'github token for octokit'
+    required: true
+  from_branch:
+    description: 'source branch'
+  to_branch:
+    description: 'desctination branch'
+
+runs:
+  using: 'node16'
+  main: 'dist/index.js'
